@@ -1195,12 +1195,15 @@ a {
 #ds-reset .ds-service-link {
   height: 16px !important;
   line-height: 16px;
-  padding-left: 0px !important;
+  padding-left: 2px !important;
   display: block;
   overflow: hidden;
   border: 1px solid !important;
   text-align: center !important;
   background: none !important;
+}
+#ds-thread #ds-reset a:hover {
+  color: #222 !important;
 }
 @-moz-keyframes cd-bounce-1 {
   0% {
