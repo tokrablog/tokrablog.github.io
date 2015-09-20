@@ -1192,6 +1192,16 @@ a {
 #article-nav #article-nav-older {
   float: right;
 }
+#ds-reset .ds-service-link {
+  height: 16px !important;
+  line-height: 16px;
+  padding-left: 0px !important;
+  display: block;
+  overflow: hidden;
+  border: 1px solid !important;
+  text-align: center !important;
+  background: none !important;
+}
 @-moz-keyframes cd-bounce-1 {
   0% {
     opacity: 0;
