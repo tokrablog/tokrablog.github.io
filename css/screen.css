@@ -47,8 +47,8 @@ html {
 
 body {
     height: 100%;
-    font-family: 'Open Sans','Helvetica Neue','Helvetica',Arial,'Hiragino Sans GB',
-    'Microsoft YaHei','SimSun','Droid Sans Fallback',sans-serif;
+    font-family: 'Open Sans','Helvetica Neue','Helvetica',Arial,
+    'Microsoft YaHei','Droid Sans Fallback',sans-serif;
     font-size: 2.0rem;
     line-height: 1.6em;
     color: #3A4145;
