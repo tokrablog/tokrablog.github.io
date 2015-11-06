@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="FE," />
 
 
 
@@ -42,7 +42,8 @@
 <meta name="description" content="按照node.js开发指南操作，使用应用生成器Express快速创建一个应用程序框架。使用命令1$ npm install express -g
  安装后，express指令输入后，提示command not found.
  查看了express网站官方文档，使用  1$npm install express-generator -g
-  成功安装，然后安装依赖后，运行程序。">
+  成功安装，然后安装依赖后，运行程序。
+因为教程里expre">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Express安装问题">
 <meta property="og:url" content="http://yoursite.com/2015/11/06/Express安装问题/index.html">
@@ -50,14 +51,16 @@
 <meta property="og:description" content="按照node.js开发指南操作，使用应用生成器Express快速创建一个应用程序框架。使用命令1$ npm install express -g
  安装后，express指令输入后，提示command not found.
  查看了express网站官方文档，使用  1$npm install express-generator -g
-  成功安装，然后安装依赖后，运行程序。">
-<meta property="og:updated_time" content="2015-11-06T03:44:38.000Z">
+  成功安装，然后安装依赖后，运行程序。
+因为教程里expre">
+<meta property="og:updated_time" content="2015-11-06T13:56:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Express安装问题">
 <meta name="twitter:description" content="按照node.js开发指南操作，使用应用生成器Express快速创建一个应用程序框架。使用命令1$ npm install express -g
  安装后，express指令输入后，提示command not found.
  查看了express网站官方文档，使用  1$npm install express-generator -g
-  成功安装，然后安装依赖后，运行程序。">
+  成功安装，然后安装依赖后，运行程序。
+因为教程里expre">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -205,11 +208,22 @@
 <p> 安装后，express指令输入后，提示command not found.</p>
 <p> 查看了express网站官方文档，使用<br>  <figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> install express-generator -g</span><br></pre></td></tr></table></figure></p>
 <p>  成功安装，然后安装依赖后，运行程序。</p>
-</span>
+<p>因为教程里express所用的为ejs，我们需要让nodejs能够直接调用ejs模板。<br>所以需要先使用<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> ejs</span><br></pre></td></tr></table></figure></p>
+<p>添加ejs库，而后在app.js里进行设置</p>
+<pre><code><span class="built_in">var</span> ejs = <span class="keyword">require</span>(<span class="string">'ejs'</span>);
+app<span class="built_in">.</span>engine(<span class="string">'html'</span>,ejs<span class="built_in">.</span>__express);
+app<span class="built_in">.</span><span class="built_in">set</span>(<span class="string">'view engine'</span>, <span class="string">'html'</span>);
+</code></pre></span>
       
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/FE/" rel="tag">#FE</a>
+          
+        </div>
       
 
       
@@ -300,7 +314,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
