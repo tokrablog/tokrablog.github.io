@@ -158,6 +158,89 @@
           
           
             
+              <a class="post-title-link" href="/2015/11/25/touch操作/" itemprop="url">
+                touch操作
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-25T12:09:53+08:00" content="2015-11-25">
+            2015-11-25
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/25/touch操作/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/25/touch操作/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>触屏操作：<br>日常进行拖拽的效果制作中，主要使用三个触摸事件。<br>这些事件都依据W3C Touch Events 规范执行。</p>
+<ol>
+<li><p>touchstart 手指触屏时候触发（可以理解为鼠标事件里的onmousedown）</p>
+</li>
+<li><p>touchmove 手指在屏幕上滑动触发，事件发生时候，屏幕会出现滚动条，需要调用event.perventdefault();阻止默认事件</p>
+</li>
+<li><p>touchend 手指移开屏幕时触发。 （可以理解为鼠标事件里的onmouseup)</p>
+</li>
+</ol>
+<p>每个触摸事件都提供了鼠标事件里一样的DOM属性，在下面的例子里，我们使用的比较多的是pageX pageY这两个 （clientX 和clientY考虑到需要处理scrollTop 和scrollLeft，使用较少） 此外，在多点触摸时候，还会用到identifier ，用以标识触摸的唯一ID</p>
+<p>除此之外，部分触摸事件中还需要用到下列的跟踪触摸的属性</p>
+<p>targetTouches   用于多点触摸操作时候</p>
+<p>changeTouches  用于多点触摸操作接触操作的判断执行</p>
+<p>下面是一个多点touch的方法</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drag</span><span class="params">(obj)</span></span>&#123;                                                                            </span><br><span class="line">    <span class="keyword">var</span> y =<span class="number">0</span> ;      <span class="comment">//设置初始的transform X轴位移值                                                     </span></span><br><span class="line">    <span class="keyword">var</span> x =<span class="number">0</span> ;      <span class="comment">//设置初始的transform Y轴位移值                                                     </span></span><br><span class="line">    obj.addEventListener(<span class="string">"touchstart"</span>,<span class="function"><span class="keyword">function</span><span class="params">(ev)</span></span>&#123;                                            </span><br><span class="line">                                                                                               </span><br><span class="line">        <span class="comment">//1 将最后加入操作触控的手指定为主控                                                                   </span></span><br><span class="line">        <span class="keyword">var</span> disX =  ev.targetTouches[ev.targetTouches.length - <span class="number">1</span>].pageX - x;   <span class="comment">// 确定控制的中心点到控制物体</span></span><br><span class="line">        <span class="keyword">var</span> disY =  ev.targetTouches[ev.targetTouches.length - <span class="number">1</span>].pageY - y;                   </span><br><span class="line">                                                                                               </span><br><span class="line">        <span class="comment">//2 将触摸物体的对象id存入变量保存                                                                   </span></span><br><span class="line">        <span class="keyword">var</span> eleId=  ev.targetTouches[ev.targetTouches.length - <span class="number">1</span>].identifier;                  </span><br><span class="line">                                                                                               </span><br><span class="line">        <span class="comment">//3 匿名函数无法解绑，所以另外命名函数，用以添加事件                                                           </span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">fnMove</span><span class="params">(ev)</span></span>&#123;                                                                   </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ;i &lt; ev.targetTouches.length;i++)&#123;                                   </span><br><span class="line">                <span class="keyword">if</span>(eleId == ev.targetTouches[i].identifier)&#123;                                   </span><br><span class="line">                    x = ev.targetTouches[i].pageX - disX ;                                     </span><br><span class="line">                    y = ev.targetTouches[i].pageY - disY ;                                     </span><br><span class="line">                                                                                               </span><br><span class="line">                    <span class="comment">//将计算出的位移变化值写入位移变化                                                         </span></span><br><span class="line">                    obj.style.transform = <span class="string">"translate("</span>+x+<span class="string">"px,"</span>+y+<span class="string">"px)"</span>;                        </span><br><span class="line">                                                                                               </span><br><span class="line">                    <span class="keyword">break</span>;                                                                     </span><br><span class="line">                &#125;                                                                              </span><br><span class="line">            &#125;                                                                                  </span><br><span class="line">        &#125;                                                                                      </span><br><span class="line">                                                                                               </span><br><span class="line">        <span class="comment">//触摸结束                                                                                 </span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">fnEnd</span><span class="params">()</span> </span>&#123;                                                                     </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; ev.changedTouches.length; i++) &#123;                               </span><br><span class="line">                <span class="keyword">if</span> (eleId == ev.changedTouches[i].identifier) &#123;                                </span><br><span class="line">                    <span class="comment">//当识别的触摸对象id与结束触摸的对象id符合一致时候                                               </span></span><br><span class="line">                    <span class="comment">//事件解绑                                                                     </span></span><br><span class="line">                    obj.removeEventListener(<span class="string">"touchmove"</span>, fnMove, <span class="literal">false</span>);                       </span><br><span class="line">                    obj.removeEventListener(<span class="string">"touchend"</span>, fnEnd, <span class="literal">false</span>);                         </span><br><span class="line">                    <span class="keyword">break</span>;                                                                     </span><br><span class="line">                &#125;                                                                              </span><br><span class="line">            &#125;                                                                                  </span><br><span class="line">        &#125;                                                                                      </span><br><span class="line">        obj.addEventListener(<span class="string">"touchmove"</span>,fnMove,<span class="literal">false</span>);                                        </span><br><span class="line">        obj.addEventListener(<span class="string">"touchend"</span>,fnEnd,<span class="literal">false</span>);                                          </span><br><span class="line">                                                                                               </span><br><span class="line">        ev.preventDefault();                                                                   </span><br><span class="line">    &#125;,<span class="literal">false</span>);                                                                                  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/11/09/弹性运动/" itemprop="url">
                 弹性运动
               </a>
@@ -877,7 +960,7 @@ app<span class="built_in">.</span><span class="built_in">set</span>(<span class=
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
