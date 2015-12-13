@@ -42,7 +42,7 @@
 <meta name="description" content="分享生活">
 <meta property="og:type" content="website">
 <meta property="og:title" content="自留地">
-<meta property="og:url" content="http://yoursite.com/archives/2015/11/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="自留地">
 <meta property="og:description" content="分享生活">
 <meta name="twitter:card" content="summary">
@@ -57,7 +57,7 @@
   };
 </script>
 
-  <title> 归档 | 自留地 </title>
+  <title> 自留地 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -75,7 +75,9 @@
 
 
 
-  <div class="container one-column  page-archive ">
+  <div class="container one-column 
+   page-home 
+">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -143,153 +145,110 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div id="content" class="content"> 
-
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 11 篇日志。 继续努力。
-    </span>
-
+  <section id="posts" class="posts-expand">
     
-
-      
-      
       
 
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2015">2015</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2015/11/28/《玻璃笼子》的笔记/" itemprop="url">
-              <span itemprop="name">《玻璃笼子》的笔记</span>
-            </a>
-        
-      </h1>
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/09/24/mac的指令存档/" itemprop="url">
+                mac的指令存档
+              </a>
+            
+          
+        </h1>
+      
 
       <div class="post-meta">
-        <time class="post-time" datetime="2015-11-28T09:07:02.000Z" itemprop="dateCreated" content="2015-11-28"> 11-28 </time>
-      </div>
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-09-24T22:57:19+08:00" content="2015-09-24">
+            2015-09-24
+          </time>
+        </span>
 
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/09/24/mac的指令存档/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/24/mac的指令存档/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
     </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><ul>
+<li>top  监控mac运行状况：<br>可显示系统进程情况，CPU使用情况、内存使用情况、磁盘使用情况和进程的详细列表信息。输入？可出现帮助信息，参考帮助可以自定义top显示的信息。输入q退出监控界面。</li>
+</ul>
+<ul>
+<li><p>利用sips命令批量处理图片 可以批量修改一批图片尺寸旋转反转等。 例如： </p>
+  <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">sips</span> -Z <span class="number">800</span> ~/Pictures/<span class="regexp">*.jpg</span>   </span><br><span class="line"><span class="comment">#把当前用户图片文件夹下的所有JPG的图片宽度缩小为800px，高度按比例缩放</span></span><br><span class="line"></span><br><span class="line">sips -r <span class="number">90</span>  ~/Pictures/<span class="regexp">*.jpg</span></span><br><span class="line"><span class="comment">#顺时针旋转90°</span></span><br><span class="line"></span><br><span class="line">sips -f vertical  ~/Pictures/<span class="regexp">*.jpg</span></span><br><span class="line"><span class="comment">#垂直反转</span></span><br></pre></td></tr></table></figure>
+<p>  更多命令用sips -h查看</p>
+</li>
+<li><p>获悉目录空间： 使用du -sh* 可以获知某个目录下各个文件和子目录各占空间，不需要一个个去查看。</p>
+</li>
+<li>快速创建便签 ： 只需要选中文字 然后shift+command+y </li>
+<li>使用浏览器时候，快速定位到地址栏 ： command+L</li>
+<li>移开程序显示桌面： command+F3</li>
+<li><p>显示隐藏内容快捷键 </p>
+  <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chflags hidden ~<span class="regexp">/Desktop/</span>* <span class="regexp">//</span>隐藏桌面的文件</span><br><span class="line">chflags nohidden ~<span class="regexp">/Desktop/</span>* <span class="regexp">//</span>显示桌面的文件</span><br></pre></td></tr></table></figure>
+<p>  重中之重：好用到爆的option+command+h 可以除了你正在使用的程序外，隐藏其他所有程序。</p>
+</li>
+<li><p>颜色标签的设置建议 ： 绿色表示正在阅读，灰色表示读完了，橙色表示待阅读，红色表示急需阅读的任务。</p>
+</li>
+<li>命令行工具locate ：根据文件名快速查找文件。    </li>
+<li>splotlight检索的技巧：<br>  通过文件类型来搜索文件。 格式为<ol>
+<li>kind:document</li>
+<li>kind:pic</li>
+<li>label:红</li>
+<li>date:today</li>
+</ol>
+</li>
+</ul>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </article>
 
 
-
     
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2015/11/25/touch操作/" itemprop="url">
-              <span itemprop="name">touch操作</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2015-11-25T04:09:53.000Z" itemprop="dateCreated" content="2015-11-25"> 11-25 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2015/11/09/弹性运动/" itemprop="url">
-              <span itemprop="name">弹性运动</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2015-11-09T04:56:37.000Z" itemprop="dateCreated" content="2015-11-09"> 11-09 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2015/11/06/Express安装问题/" itemprop="url">
-              <span itemprop="name">Express安装问题</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2015-11-06T03:26:28.000Z" itemprop="dateCreated" content="2015-11-06"> 11-06 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
   </section>
 
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
  </div>
 
@@ -400,12 +359,6 @@
   
   
   
-    <script type="text/javascript">
-      postMotionOptions = {stagger: 100, drag: true};
-    </script>
-  
-
-  
     
 
   
@@ -448,12 +401,6 @@
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
-
 
   <script type="text/javascript">
     $(document).ready(function () {
